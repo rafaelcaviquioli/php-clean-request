@@ -1,7 +1,7 @@
 {
   "name": "rafaelcaviquioli/PhpCleanRequest",
   "description": "The purpose of this class is to clear all the input parameters in an HTTP request by avoiding the passage of SQL Injection made by bad intentioned people.",
-  "minimum-stability": "v1.0",
+  "minimum-stability": "1.0",
   "license": "GNU",
   "authors": [
     {
