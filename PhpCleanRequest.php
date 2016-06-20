@@ -36,19 +36,18 @@ class PhpCleanRequest
                 $_REQUEST = array_map("addslashes", $_REQUEST);
             }
 
-            /*
-             * Anti injection sql commands
-             */
             $_POST = array_map("PhpCleanRequest::cleanSqlCommands", $_POST);
             $_GET = array_map("PhpCleanRequest::cleanSqlCommands", $_GET);
             $_REQUEST = array_map("PhpCleanRequest::cleanSqlCommands", $_REQUEST);
         }
     }
 
+    /*
+     * Anti injection sql commands
+     */
     static function cleanSqlCommands($string)
     {
         $string = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"), "", $string);
-        $string = trim($string);
         $string = strip_tags($string);
         $string = (get_magic_quotes_gpc()) ? $string : addslashes($string);
 
