@@ -9,6 +9,8 @@
  * input parameters in an HTTP request by avoiding
  * the passage of SQL Injection made by bad intentioned people.
  */
+namespace RafaelCaviquioli;
+
 class PhpCleanRequest
 {
     /*
