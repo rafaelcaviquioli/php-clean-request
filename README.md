@@ -23,8 +23,6 @@ echo $_GET['id'];
 ***Not use PhpCleanRequest***
 ```php
 <?php
-PhpCleanRequest::clean();
-
 echo $_GET['id'];
 
 /*
