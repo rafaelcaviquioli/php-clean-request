@@ -38,9 +38,15 @@ class PhpCleanRequest
                 $_REQUEST = array_map("addslashes", $_REQUEST);
             }
 
-            $_POST = array_map("PhpCleanRequest::cleanSqlCommands", $_POST);
-            $_GET = array_map("PhpCleanRequest::cleanSqlCommands", $_GET);
-            $_REQUEST = array_map("PhpCleanRequest::cleanSqlCommands", $_REQUEST);
+            foreach($_POST as $key => $post){
+                $_POST[$key] = self::cleanSqlCommands($post);
+            }
+            foreach($_GET as $key => $get){
+                $_GET[$key] = self::cleanSqlCommands($get);
+            }
+            foreach($_REQUEST as $key => $request){
+                $_REQUEST[$key] = self::cleanSqlCommands($request);
+            }
         }
     }
 
